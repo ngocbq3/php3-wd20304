@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,7 +29,7 @@ class HomeController extends Controller
     {
         //Lấy bài viết theo id
         $post = DB::table('posts')->where('id', $id)->first();
-
-        return view('clients.post', compact('post'));
+        $categories = Category::all();
+        return view('clients.post', compact('post', 'categories'));
     }
 }
