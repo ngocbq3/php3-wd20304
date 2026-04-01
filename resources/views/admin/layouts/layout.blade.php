@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="container w-90 mt-3">
         <nav>Menu</nav>
         <aside>Side bar</aside>
 

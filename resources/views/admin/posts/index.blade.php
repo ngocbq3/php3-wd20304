@@ -11,7 +11,7 @@
             <th>Image</th>
             <th>Category</th>
             <th>
-                <a href="#" class="btn btn-primary">
+                <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">
                     Create
                 </a>
             </th>
@@ -26,7 +26,7 @@
                 </td>
                 <td> {{ $post->category->name }} </td>
                 <td>
-                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Edit</a>
                     <form class="d-inline" action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
                         @csrf
                         @method('DELETE')
