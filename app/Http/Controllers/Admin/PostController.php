@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRequestPost;
+use App\Http\Requests\UpdateRequestPost;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -33,7 +35,7 @@ class PostController extends Controller
         return view('admin.posts.create', compact('categories'));
     }
     //Thêm dữ liệu
-    public function store(Request $request)
+    public function store(StoreRequestPost $request)
     {
         $data = $request->except('image');
         //Nhập số lượt xem = 0
@@ -63,7 +65,7 @@ class PostController extends Controller
         );
     }
     //Cập nhật vào CSDL
-    public function update(Request $request, $id)
+    public function update(UpdateRequestPost $request, $id)
     {
         //Lấy ra dữ liệu từ người dùng
         $data = $request->except('image');

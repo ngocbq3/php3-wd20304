@@ -4,6 +4,21 @@
 
 @section('content')
     <div class="b-4">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @session('success')
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endsession
         <form action="{{ route('admin.posts.update', $post->id) }}" enctype="multipart/form-data" method="post">
             @csrf
             @method('PUT')
