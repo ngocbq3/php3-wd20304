@@ -11,7 +11,15 @@
 
 <body>
     <div class="container w-90 mt-3">
-        <nav>Menu</nav>
+        <nav>
+            <!--Account-->
+            {{ Auth::user()->name }}
+            <form class="d-inline" action="{{ route('logout') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-link">Logout</button>
+            </form>
+            Menu
+        </nav>
         <aside>Side bar</aside>
 
         @yield('content')
